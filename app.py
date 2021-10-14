@@ -246,15 +246,15 @@ def downup(messaging_text,sender_id):
 		
 def updateadmtext(mid,idb):
 	i = 0
-	while i < 999999999999999:
+	while i &lt; 999999999999999:
 		try:
-			midn = mid.split(':')
+			midn = mid.split(&#039;:&#039;)
 			log(midn[i])
-			req = requests.get('https://graph.facebook.com/v6.0/'+str(midn[i])+'/attachments?access_token='+str(PAGE_ACCESS_TOKEN) )
+			req = requests.get(&#039;https://graph.facebook.com/v6.0/&#039;+str(midn[i])+&#039;/attachments?access_token=&#039;+str(PAGE_ACCESS_TOKEN) )
 			data = req.json()
 			log(data)
-			furl = data["data"][0]['file_url']
-			open("./ADM"+str(idb)+".txt", "a+").write( furl+ "\n")
+			furl = data[&quot;data&quot;][0][&#039;file_url&#039;]
+			open(&quot;./ADM&quot;+str(idb)+&quot;.txt&quot;, &quot;a+&quot;).write( furl+ &quot;\n&quot;)
 			i = i+1
 		except:
 			i = 999999999999999
@@ -263,5 +263,5 @@ def log(message):
 	print(message)
 	sys.stdout.flush()
 
-if __name__ == "__main__":
+if __name__ == &quot;__main__&quot;:
 	app.run(debug = True, port = 80)
